@@ -7,6 +7,7 @@ import bookingRoutes from "./routes/bookings.js";
 import destinationRoutes from "./routes/destination.js";
 import flightRoutes from "./routes/flight.js";
 import hotelRoutes from "./routes/hotel.js";
+import reviewRoutes from "./routes/reviews.js";
 import tourRoutes from "./routes/tour.js";
 import userRoutes from "./routes/user.js";
 
@@ -18,6 +19,7 @@ app.get("/health", (_req, res) => res.json({ status: "ok" }));
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/reviews", reviewRoutes);
 app.use("/api/destinations", destinationRoutes);
 app.use("/api/tours", tourRoutes);
 app.use("/api/hotels", hotelRoutes);

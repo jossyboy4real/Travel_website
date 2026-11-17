@@ -1,7 +1,7 @@
 import { Booking } from "../models/bookings.js";
 import { User } from "../models/user.js";
 
-async function getMongoUserId(req) {
+async function getMongoDbUserId(req) {
   if (req.user?._id) {
     return req.user._id;
   }
@@ -33,7 +33,7 @@ export async function createBooking(req, res, next) {
   }
 
   try {
-    const userId = await getMongoUserId(req);
+    const userId = await getMongoDbUserId(req);
     if (!userId) {
       return res.status(404).json({
         status: false,
@@ -57,7 +57,7 @@ export async function createBooking(req, res, next) {
 
 export async function getUserBookings(req, res, next) {
   try {
-    const userId = await getMongoUserId(req);
+    const userId = await getMongoDbUserId(req);
     if (!userId) {
       return res.status(404).json({
         status: false,
